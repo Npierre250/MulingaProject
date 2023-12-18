@@ -3,6 +3,7 @@ package com.kenny.JobBoardPlatformforconnectingJobSeekerswithemployers.dao;
 
 
 import com.kenny.JobBoardPlatformforconnectingJobSeekerswithemployers.model.Role;
+import com.kenny.JobBoardPlatformforconnectingJobSeekerswithemployers.model.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,15 @@ public class RoleDaoImpl implements RoleDao {
 			theRole = null;
 		}
 		
+		return theRole;
+	}
+	@Override
+	public Role save(Role theRole) {
+		// get current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		// create the user ... finally LOL
+		currentSession.saveOrUpdate(theRole);
 		return theRole;
 	}
 }

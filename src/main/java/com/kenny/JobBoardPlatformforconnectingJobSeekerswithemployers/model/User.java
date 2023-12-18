@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -167,6 +167,13 @@ public class User {
 
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public void addRole(Role role) {
+        if (roles == null) {
+            roles = new ArrayList<>();
+        }
+        roles.add(role);
     }
 
     @Override
